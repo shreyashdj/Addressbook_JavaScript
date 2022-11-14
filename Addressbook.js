@@ -132,9 +132,7 @@ class Contact {
     }
 }
 
-
-
-let contactList = new Array(Contact);
+let contactList = new Array();
 
 function addContact() {
 
@@ -172,9 +170,13 @@ function deleteContact() {
         .forEach(contact => contactList.splice(contactList.indexOf(contact), 1));
 }
 
+function countContacts() {
+    console.log("\n Total No. of Contacts :", contactList.length)
+}
+
 let option;
 do {
-    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Delete Contact \n 5. Exit")
+    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Delete Contact, \n 5. Count Contacts, 6. Exit")
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
@@ -190,10 +192,13 @@ do {
             deleteContact();
             break;
         case 5:
+            countContacts();
+            break;
+        case 6:
             console.log("\n Exited \n")
             break;
         default:
             console.log("\n Invalid Option")
             break;
     }
-} while (option != 5);
+} while (option != 6);
