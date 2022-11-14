@@ -159,9 +159,15 @@ function printContacts() {
     console.log(contactList);
 }
 
+function searchContact() {
+    console.log()
+    let name = prompt(" Enter First Name : ");
+    contactList.filter(contact => contact.getFirstName == name).forEach(contact => console.log(contact));
+}
+
 let option;
 do {
-    console.log("\n 1. Add Contact \n 2. Print Contact \n 3. Exit")
+    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Exit")
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
@@ -171,10 +177,13 @@ do {
             printContacts();
             break;
         case 3:
+            searchContact();
+            break;
+        case 4:
             console.log("\n Exited \n")
             break;
         default:
             console.log("\n Invalid Option")
             break;
     }
-} while (option != 3);
+} while (option != 4);
