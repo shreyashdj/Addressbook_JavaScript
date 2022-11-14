@@ -1,4 +1,6 @@
-console.log("\n **** Welcome to AddressBook **** \n");
+console.log("\n **** Welcome to AddressBook ****");
+
+const prompt = require("prompt-sync")();
 
 class Contact {
     //  variables to store contact details
@@ -130,15 +132,49 @@ class Contact {
     }
 }
 
-let contact = new Contact()
 
-contact.setFirstName = 'Shreyash'
-contact.setLastName = 'Jadhav'
-contact.setAddress = 'Dighanchi'
-contact.setCity = 'Sangli'
-contact.setState = 'Maharashtra'
-contact.setZip = '112345'
-contact.setPhoneNumber = '9876543621'
-contact.setEmail = 'Shrey99@gmail.com'
 
-console.log(contact)
+let contactList = new Array(Contact);
+
+function addContact() {
+
+    let contact = new Contact()
+
+    console.log()
+    contact.setFirstName = prompt(" Enter First Name : ");
+    contact.setLastName = prompt(" Enter Last Name : ");
+    contact.setAddress = prompt(" Enter Address : ");
+    contact.setCity = prompt(" Enter City : ");
+    contact.setState = prompt(" Enter State : ");
+    contact.setZip = prompt(" Enter Zip Code : ");
+    contact.setPhoneNumber = prompt(" Enter Phone Number : ");
+    contact.setEmail = prompt(" Enter Email ID : ");
+
+    contactList.push(contact);
+
+    console.log("\n Contact Added");
+}
+
+function printContacts() {
+    console.log(contactList);
+}
+
+let option;
+do {
+    console.log("\n 1. Add Contact \n 2. Print Contact \n 3. Exit")
+    option = parseInt(prompt(" Enter Option : "));
+    switch (option) {
+        case 1:
+            addContact();
+            break;
+        case 2:
+            printContacts();
+            break;
+        case 3:
+            console.log("\n Exited \n")
+            break;
+        default:
+            console.log("\n Invalid Option")
+            break;
+    }
+} while (option != 3);
