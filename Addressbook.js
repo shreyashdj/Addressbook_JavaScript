@@ -165,9 +165,16 @@ function searchContact() {
     contactList.filter(contact => contact.getFirstName == name).forEach(contact => console.log(contact));
 }
 
+function deleteContact() {
+    console.log()
+    let name = prompt(" Enter First Name : ");
+    contactList.filter(contact => contact.getFirstName == name)
+        .forEach(contact => contactList.splice(contactList.indexOf(contact), 1));
+}
+
 let option;
 do {
-    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Exit")
+    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Delete Contact \n 5. Exit")
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
@@ -180,10 +187,13 @@ do {
             searchContact();
             break;
         case 4:
+            deleteContact();
+            break;
+        case 5:
             console.log("\n Exited \n")
             break;
         default:
             console.log("\n Invalid Option")
             break;
     }
-} while (option != 4);
+} while (option != 5);
