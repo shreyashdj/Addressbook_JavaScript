@@ -173,15 +173,20 @@ function printAllContacts() {
 function printFromCity() {
     console.log()
     let city = prompt(" Enter City : ");
+    let count = 0;
     contactList.filter(contact => contact.getCity == city)
-        .forEach(contact => console.log(contact));
+        .forEach(contact => { console.log(contact); count++; });
+    console.log("\n Total no. of Contacts in", city, ":", count);
 }
 
 function printFromState() {
     console.log()
     let state = prompt(" Enter State : ");
+    let count = 0;
     contactList.filter(contact => contact.getState == state)
-        .forEach(contact => console.log(contact));
+        .forEach(contact => { console.log(contact); count++; });
+    console.log("\n Total no. of Contacts in", state, ":", count);
+
 }
 
 function searchByCity() {
@@ -219,8 +224,8 @@ function countContacts() {
 
 let option;
 do {
-    console.log("\n 1. Add Contact, 2. Print All Contacts, 3. Print From City, 4. Print From State, 5. Search By Name,");
-    console.log(" 6. Search By City, 7. Search By State, 8. Delete Contact, 9. Count Contacts, 10. Exit");
+    console.log("\n (1) Add Contact, (2) Print All Contacts, (3) Print From City, (4) Print From State, (5) Search By Name,");
+    console.log(" (6) Search By City, (7) Search By State, (8) Delete Contact, (9) Count Contacts, (10) Exit");
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
@@ -229,10 +234,10 @@ do {
         case 2:
             printAllContacts();
             break;
-            case 3:
+        case 3:
             printFromCity();
             break;
-            case 4:
+        case 4:
             printFromState();
             break;
         case 5:
