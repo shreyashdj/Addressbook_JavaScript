@@ -22,7 +22,7 @@ class Contact {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-    
+
     //  getter and setter methods
     get getFirstName() {
         return this.firstName;
@@ -57,34 +57,88 @@ class Contact {
     }
 
     set setFirstName(firstName) {
-        this.firstName = firstName;
+        let regex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if (regex.test(firstName)) {
+            this.firstName = firstName;
+        }
+        else {
+            throw 'First name is incorrect';
+        }
     }
 
     set setLastName(lastName) {
-        this.lastName = lastName;
+        let regex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if (regex.test(lastName)) {
+            this.lastName = lastName;
+        } else {
+            throw 'Last Name is incorrect';
+        }
     }
 
     set setAddress(address) {
-        this.address = address;
+        let regex = RegExp('^[[A-z]{4,}$');
+        if (regex.test(address)) {
+            this.address = address;
+        } else {
+            throw 'Address is incorrect';
+        }
     }
 
     set setCity(city) {
-        this.city = city;
+        let regex = RegExp('^[[A-z]{4,}$');
+        if (regex.test(city)) {
+            this.city = city;
+        } else {
+            throw 'City is incorrect';
+        }
     }
 
     set setState(state) {
-        this.state = state;
+        let regex = RegExp('^[[A-z]{4,}$');
+        if (regex.test(state)) {
+            this.state = state;
+        } else {
+            throw 'State is incorrect';
+        }
     }
 
     set setZip(zip) {
-        this.zip = zip;
+        let regex = RegExp('^[1-9][0-9]{5}$');
+        if (regex.test(zip)) {
+            this.zip = zip;
+        } else {
+            throw 'Zip Code is incorrect';
+        }
     }
 
     set setPhoneNumber(phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        let regex = RegExp("^[1-9][0-9]{9}$");
+        if (regex.test(phoneNumber)) {
+            this.phoneNumber = phoneNumber;
+        } else {
+            throw 'Phone Number is incorrect';
+        }
     }
 
     set setEmail(email) {
-        this.email = email;
+        let myregex = RegExp("^[A-z\\d]+[.]?[-+A-z\\d]+@[A-z\\d]+[.]?[A-z]*[.][A-z,]{2,}$");
+        if (myregex.test(email)) {
+            this.email = email;
+        } else {
+            throw 'Email is incorrect';
+        }
     }
 }
+
+let contact = new Contact()
+
+contact.setFirstName = 'Shreyash'
+contact.setLastName = 'Jadhav'
+contact.setAddress = 'Dighanchi'
+contact.setCity = 'Sangli'
+contact.setState = 'Maharashtra'
+contact.setZip = '112345'
+contact.setPhoneNumber = '9876543621'
+contact.setEmail = 'Shrey99@gmail.com'
+
+console.log(contact)
