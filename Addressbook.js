@@ -170,7 +170,23 @@ function printContacts() {
     console.log(contactList);
 }
 
-function searchContact() {
+function searchByCity() {
+    console.log()
+    let name = prompt(" Enter First Name : ");
+    let city = prompt(" Enter City : ");
+    contactList.filter(contact => contact.getCity == city)
+        .filter(contact => contact.getFirstName == name).forEach(contact => console.log(contact));
+}
+
+function searchByState() {
+    console.log()
+    let name = prompt(" Enter First Name : ");
+    let state = prompt(" Enter State : ");
+    contactList.filter(contact => contact.getState == state)
+        .filter(contact => contact.getFirstName == name).forEach(contact => console.log(contact));
+}
+
+function searchByName() {
     console.log()
     let name = prompt(" Enter First Name : ");
     contactList.filter(contact => contact.getFirstName == name).forEach(contact => console.log(contact));
@@ -189,7 +205,8 @@ function countContacts() {
 
 let option;
 do {
-    console.log("\n 1. Add Contact, 2. Print Contact, \n 3. Search Contact, 4. Delete Contact, \n 5. Count Contacts, 6. Exit")
+    console.log("\n 1. Add Contact, 2. Print Contact, 3. Search By Name, 4. Search By City,");
+    console.log(" 5. Search By State, 6. Delete Contact, 7. Count Contacts, 8. Exit");
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
@@ -199,19 +216,25 @@ do {
             printContacts();
             break;
         case 3:
-            searchContact();
+            searchByName();
             break;
         case 4:
-            deleteContact();
+            searchByCity();
             break;
         case 5:
-            countContacts();
+            searchByState();
             break;
         case 6:
+            deleteContact();
+            break;
+        case 7:
+            countContacts();
+            break;
+        case 8:
             console.log("\n Exited \n")
             break;
         default:
             console.log("\n Invalid Option")
             break;
     }
-} while (option != 6);
+} while (option != 8);
