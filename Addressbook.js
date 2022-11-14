@@ -166,8 +166,22 @@ function addContact() {
     console.log("\n Contact Added");
 }
 
-function printContacts() {
+function printAllContacts() {
     console.log(contactList);
+}
+
+function printFromCity() {
+    console.log()
+    let city = prompt(" Enter City : ");
+    contactList.filter(contact => contact.getCity == city)
+        .forEach(contact => console.log(contact));
+}
+
+function printFromState() {
+    console.log()
+    let state = prompt(" Enter State : ");
+    contactList.filter(contact => contact.getState == state)
+        .forEach(contact => console.log(contact));
 }
 
 function searchByCity() {
@@ -205,36 +219,42 @@ function countContacts() {
 
 let option;
 do {
-    console.log("\n 1. Add Contact, 2. Print Contact, 3. Search By Name, 4. Search By City,");
-    console.log(" 5. Search By State, 6. Delete Contact, 7. Count Contacts, 8. Exit");
+    console.log("\n 1. Add Contact, 2. Print All Contacts, 3. Print From City, 4. Print From State, 5. Search By Name,");
+    console.log(" 6. Search By City, 7. Search By State, 8. Delete Contact, 9. Count Contacts, 10. Exit");
     option = parseInt(prompt(" Enter Option : "));
     switch (option) {
         case 1:
             addContact();
             break;
         case 2:
-            printContacts();
+            printAllContacts();
             break;
-        case 3:
-            searchByName();
+            case 3:
+            printFromCity();
             break;
-        case 4:
-            searchByCity();
+            case 4:
+            printFromState();
             break;
         case 5:
-            searchByState();
+            searchByName();
             break;
         case 6:
-            deleteContact();
+            searchByCity();
             break;
         case 7:
-            countContacts();
+            searchByState();
             break;
         case 8:
+            deleteContact();
+            break;
+        case 9:
+            countContacts();
+            break;
+        case 10:
             console.log("\n Exited \n")
             break;
         default:
             console.log("\n Invalid Option")
             break;
     }
-} while (option != 8);
+} while (option != 10);
