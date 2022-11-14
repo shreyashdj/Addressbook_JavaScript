@@ -139,7 +139,20 @@ function addContact() {
     let contact = new Contact()
 
     console.log()
-    contact.setFirstName = prompt(" Enter First Name : ");
+    let name = prompt(" Enter First Name : ");
+    let check;
+    contactList.forEach(contact => {
+        if (contact.getFirstName == name) {
+            console.log(" \n Contact Already Exist");
+            check = true;
+        }
+    })
+
+    if (check == true) {
+        return;
+    }
+
+    contact.setFirstName = name;
     contact.setLastName = prompt(" Enter Last Name : ");
     contact.setAddress = prompt(" Enter Address : ");
     contact.setCity = prompt(" Enter City : ");
